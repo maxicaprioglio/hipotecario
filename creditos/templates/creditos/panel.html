@@ -1,0 +1,84 @@
+{% extends 'base.html' %} {% load static %} {%block title %}Panel del Simulador
+de Crédito Hipotecario{% endblock %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'creditos/css/panel.css' %}" />
+{% endblock %} {% block header %}
+<header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'index' %}" target="_blank">
+        <img src="{% static 'imagenes/Logo.png' %}" alt="Logo" class="logo" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse flex-grow-0"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item border px-2">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+{% endblock %} {% block content %}
+
+<div class="container">
+  <h1 class="mt-4">Panel del Simulador de Crédito Hipotecario</h1>
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">Fecha</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Email</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Tipo de Empleo</th>
+        <th scope="col">Antiguedad Laboral</th>
+        <th scope="col">Bruto</th>
+        <th scope="col">Propiedad</th>
+        <th scope="col">Ahorros</th>
+        <th scope="col">Plazo</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for consulta in consultas %}
+      <tr>
+        <td>{{ consulta.fecha|date:"d/m/Y" }}</td>
+        <td>{{ consulta.nombre }}</td>
+        <td>{{ consulta.edad }}</td>
+        <td>{{ consulta.email }}</td>
+        <td>{{ consulta.celular }}</td>
+        <td>{{ consulta.tipo_empleo }}</td>
+        <td>{{ consulta.antiguedad_laboral }}</td>
+        <td>{{ consulta.bruto }}</td>
+        <td>{{ consulta.propiedad }}</td>
+        <td>{{ consulta.ahorros }}</td>
+        <td>{{ consulta.plazo }}</td>
+        <td>
+          <a href="{% url 'eliminar_consulta' consulta.id %}" title="Eliminar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-trash" viewBox="0 0 16 16">
+              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5.5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6zm2.5-.5a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5z"/>
+              <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1 0-2H5V1.5A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5V2h2.5a1 1 0 0 1 1 1zM6 2v-.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V2H6z"/>
+            </svg>
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

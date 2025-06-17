@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+<!-- HEAD -->
+{%block title %}Simulador de Crédito Hipotecario{% endblock %} 
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'creditos/css/index.css' %}" />
+{% endblock %} 
+
+<!--  BODY  -->
+{% block header %}
+{% include 'header.html' %}
+{% endblock %}
+
+{% block content %}
+
+{% include 'creditos/partials/portada.html' %}
+{% include 'creditos/partials/simulador.html' %}
+{% include 'creditos/partials/informe.html' with cliente=cliente %}
+
+{% endblock %} 
+
+<!-- FOOTER -->
+{% block footer %}
+{% include 'footer.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'creditos/js/index.js' %}"></script>
+{% endblock %}

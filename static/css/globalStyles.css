@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* footer */
+footer {
+  background-color: var(--verde-bg-color);
+  font-family: var(--font-textos);
+  color: var(--blanco-color);
+  font-size: 1.5vw;
+}
+
+.footer-content a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  footer {
+    font-size: 2vw;
+  }
+}

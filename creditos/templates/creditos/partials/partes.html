@@ -1,0 +1,102 @@
+<!-- residuos simulador -->
+<input
+  type="text"
+  class="form-control texto-formulario"
+  id="nombre"
+  name="nombre"
+  placeholder="Nombre y apellido"
+  value="{{ form.nombre.value|default_if_none:'' }}"
+  required
+/>
+
+<input
+  type="number"
+  class="form-control texto-formulario"
+  id="edad"
+  name="edad"
+  placeholder="Edad"
+  value="{{ form.edad.value|default_if_none:'' }}"
+  min="0"
+  max="120"
+  required
+/>
+
+<input
+  type="email"
+  class="form-control texto-formulario"
+  id="email"
+  name="email"
+  placeholder="Correo electrónico"
+  required
+  value="{{ form.email.value|default_if_none:'' }}"
+/>
+<input
+  type="text"
+  class="form-control texto-formulario"
+  id="celular"
+  name="celular"
+  placeholder="Celular"
+  pattern="[0-9\s]{8,15}"
+  required
+  value="{{ form.celular.value|default_if_none:'' }}"
+/>
+<select
+  class="form-select texto-formulario"
+  aria-label="Tipo de empleo"
+  id="tipo_empleo"
+  name="tipo_empleo"
+  value="{{ form.tipo_empleo.value|default_if_none:'' }}"
+  required
+>
+  <option selected>Tipo de empleo</option>
+  <option value="1">Relación de dependencia</option>
+  <option value="2">Independiente</option>
+</select>
+
+<input
+  type="number"
+  class="form-control texto-formulario"
+  id="antiguedad_laboral"
+  name="antiguedad_laboral"
+  placeholder="Antigüedad laboral"
+  min="0"
+  max="80"
+  required
+  value="{{ form.antiguedad_laboral.value|default_if_none:'' }}"
+/>
+<input
+  type="number"
+  class="form-control texto-formulario"
+  id="bruto"
+  name="bruto"
+  placeholder="Ingreso bruto mensual (en pesos)"
+  required
+  value="{{ form.bruto.value|default_if_none:'' }}"
+/>
+<input
+  type="number"
+  class="form-control texto-formulario"
+  id="propiedad"
+  name="propiedad"
+  placeholder="Valor de la propiedad (en pesos)"
+  required
+  value="{{ form.propiedad.value|default_if_none:'' }}"
+/>
+<input
+  type="number"
+  class="form-control texto-formulario"
+  id="ahorros"
+  name="ahorros"
+  value="{{ form.ahorros.value|default_if_none:'' }}"
+  placeholder="Ahorros disponibles (en pesos)"
+  required
+/>
+<input
+  type="number"
+  class="form-control texto-formulario"
+  id="plazo"
+  name="plazo"
+  value="{{ form.plazo.value|default_if_none:'' }}"
+  placeholder="Plazo de financiamiento"
+  required
+/>

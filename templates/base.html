@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Simulador de crédito hipotecario" />
+    <meta name="author" content="Maximiliano Caprioglio" />
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="{% static 'imagenes/favicon.png' %}">
+
+    <!-- fonts y variables -->
+    <style>
+
+      @font-face {
+        font-family: "Monserrat";
+        src: url("{% static 'fonts/Montserrat/static/Montserrat-Regular.ttf' %}")
+          format("truetype");
+      }
+
+      @font-face {
+        font-family: "Raleway";
+        src: url("{% static 'fonts/Raleway/static/Raleway-Regular.ttf' %}")
+         format("truetype");
+      }
+      :root {
+        --verde-bg-color: #526522;
+        --gris-claro-color: #76767b;
+        --gris-oscuro-color: #343437;
+        --blanco-color: #ffffff;
+        --font-titulos: "Monserrat";
+        --font-textos: "Raleway";
+      }
+    </style>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}" />
+
+    <!-- estilo global -->
+    <link rel="stylesheet" href="{% static 'css/globalStyles.css' %}" />
+    
+    <!-- estilo especificos -->
+    {% block extra_css %}
+    {% endblock %}
+  </head>
+  <body>
+
+    {% block header %}
+    {% endblock %}
+
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    <!-- footer -->
+    {% block footer %}
+    {% endblock %}
+    
+    <!-- scripts -->
+    {% block extra_js %}
+    {% endblock %}
+
+    <!-- Bootstrap js-->
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    
+  </body>
+</html>

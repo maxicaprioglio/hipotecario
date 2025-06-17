@@ -1,0 +1,5 @@
+body{
+    background-color: var(--verde-bg-color);
+    color: var(--blanco-color);
+    font-family: var(--font-titulos);
+}

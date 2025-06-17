@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{%block title %}Login Crédito Hipotecario{% endblock %} 
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'creditos/css/login.css' %}" />
+{% endblock %} 
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container text-center">
+      <h1 class="mb-4">Simulador de Crédito Hipotecario</h1>
+      <p>Por favor, inicia sesión para acceder al panel.</p>
+      <div class="d-flex justify-content-center align-items-center">
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group mb-3">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required />
+      </div>
+      <div class="form-group mb-3">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% if error %}
+<div class="error-message">{{ error }}</div>
+{% endif %} 
+
+{% endblock %} 
