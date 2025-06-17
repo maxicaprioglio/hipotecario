@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -68,14 +69,11 @@ WSGI_APPLICATION = 'hipotecario.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql', 
-        'NAME': 'hipotecario',
-        'USER': 'postgres',
-        'PASSWORD': 'capri1980',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default='postgresql://hipotecario_user:Lb7sMKKJpKtMqOJyiMciSBZH47ShWPcw@dpg-d18rdtripnbc7396oj70-a.oregon-postgres.render.com/hipotecario',
+        conn_max_age=600,
+        ssl_require=True,
+        )
 }
 
 
