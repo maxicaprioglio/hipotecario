@@ -1,7 +1,13 @@
-{% extends 'base.html' %} {% load static %} {%block title %}Panel del Simulador
-de Crédito Hipotecario{% endblock %} {% block extra_css %}
+{% extends 'base.html' %} 
+{% load static %} 
+
+{%block title %}Panel del Simulador de Crédito Hipotecario{% endblock %} 
+
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'creditos/css/panel.css' %}" />
-{% endblock %} {% block header %}
+{% endblock %} 
+
+{% block header %}
 <header>
   <nav class="navbar navbar-expand-lg">
     <div class="container">
@@ -61,7 +67,11 @@ de Crédito Hipotecario{% endblock %} {% block extra_css %}
         <td>{{ consulta.edad }}</td>
         <td>{{ consulta.email }}</td>
         <td>{{ consulta.celular }}</td>
-        <td>{{ consulta.tipo_empleo }}</td>
+        <td>{% if consulta.tipo_empleo == 1 %}
+              En Relación
+            {% else %}
+              Independiente
+            {% endif %}</td>
         <td>{{ consulta.antiguedad_laboral }}</td>
         <td>{{ consulta.bruto }}</td>
         <td>{{ consulta.propiedad }}</td>
