@@ -3,5 +3,6 @@
 
 # Credenciales de acceso al Panel de Administración
 
+https://hipotecario-a6zx.onrender.com/panel
 Usuario: admin
-password: 1234
+password: admin123
